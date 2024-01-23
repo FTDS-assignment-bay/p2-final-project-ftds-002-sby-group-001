@@ -11,7 +11,13 @@ Role that will work in this deployment :
 - Data Engineer : Syahrul as deployment engineer and streamlit dev
 '''
 
+# Import pandas and streamlit
 import pandas as pd
-import numpy as np
+import streamlit as st 
 
-import streamlit as st
+# Import other files in the same folder
+import eda
+import prediction
+
+# Importing image, nanti tinggal di define aja di bawah
+from PIL import Image
