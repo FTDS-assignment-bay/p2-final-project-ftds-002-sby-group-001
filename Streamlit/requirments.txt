@@ -1,0 +1,7 @@
+kmodes
+streamlit
+sklearn
+pandas
+numpy
+pillow
+datetime
