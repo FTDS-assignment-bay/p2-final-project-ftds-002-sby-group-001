@@ -209,7 +209,7 @@ def run():
         # st.write('# Response: ', data_final_pred)
     # Start of Clustering    
     if data_final_pred == 1 :
-        st.write("This customer will buy the product from the campaign")
+        st.write("## Customer ini terprediksi akan membeli prodak pada campaign selanjutnya")
     elif data_final_pred == 0:
         # Create new features from amount features
         data_inf_2["total_mnt"] = data_inf_2["mnt_wines"] + data_inf_2["mnt_fruits"] + data_inf_2["mnt_meat_products"] + data_inf_2["mnt_fish_products"] + data_inf_2["mnt_sweet_products"] + data_inf_2["mnt_gold_prods"]
@@ -275,19 +275,19 @@ def run():
         # st.write('# Cluster Response: ', data_final_pred_cluster)
         
         if data_final_pred_cluster == 0:
-            st.write("Customers tidak akan membeli prodak. tetapi dapat disarankan untuk: ")
-            st.write("1. Membuat bundle dan memberikan diskon pada kebutuhan pokok.")
-            st.write("Membuat campaign keluarga untuk momen-momen tertentu, menjual produk dengan porsi keluarga dengan harga terdiskon.")
+            st.write("# Termasuk customer dengan sifat low income low spending. Customers tidak akan membeli prodak. tetapi dapat disarankan untuk: ")
+            st.write("### 1. Membuat bundle dan memberikan diskon pada kebutuhan pokok.")
+            st.write("### 2. Membuat campaign keluarga untuk momen-momen tertentu, menjual produk dengan porsi keluarga dengan harga terdiskon.")
         elif data_final_pred_cluster == 1:
-            st.write("Customers tidak akan membeli prodak. tetapi dapat disarankan untuk: ")
-            st.write("1. Membuat loyalty program dan pemberian poin double untuk pembelian produk tertentu. Berguna untuk meratakan kategori pembelian customer.")
-            st.write("2. Membuat bundle kualitas premium dengan harga terdiskon pada momen tertentu. Berguna untuk memberikan sensasi produk premium kepada customer, sehingga dapat memancing mereka membeli produk premium di lain kesempatan.")
+            st.write("# Termasuk customer dengan sifat middle income middle spending. Customers tidak akan membeli prodak. tetapi dapat disarankan untuk: ")
+            st.write("### 1. Membuat loyalty program dan pemberian poin double untuk pembelian produk tertentu. Berguna untuk meratakan kategori pembelian customer.")
+            st.write("### 2. Membuat bundle kualitas premium dengan harga terdiskon pada momen tertentu. Berguna untuk memberikan sensasi produk premium kepada customer, sehingga dapat memancing mereka membeli produk premium di lain kesempatan.")
         elif data_final_pred_cluster == 2:
-            st.write("Customers tidak akan membeli prodak. tetapi dapat disarankan untuk: ")
-            st.write("1. Memberikan layanan premium tambahan untuk customer, berguna untuk meningkatkan spending customer.")
-            st.write("2. Memberikan hadiah pada ulang tahun customer bergabung, berguna untuk memberikan memori dan mendekatkan relasi dengan customer.")
-            st.write("3. Memberikan layanan early access kepada customer untuk menikmati produk-produk limited")
+            st.write("# Termasuk customer dengan sifat high income high spending. Customers tidak akan membeli prodak. tetapi dapat disarankan untuk: ")
+            st.write("### 1. Memberikan layanan premium tambahan untuk customer, berguna untuk meningkatkan spending customer.")
+            st.write("### 2. Memberikan hadiah pada ulang tahun customer bergabung, berguna untuk memberikan memori dan mendekatkan relasi dengan customer.")
+            st.write("### 3. Memberikan layanan early access kepada customer untuk menikmati produk-produk limited")
     else:
-        st.write("Tekan Tombol Prediksi Untuk Memulai Prediksi")
+        st.write("## Tekan Tombol Prediksi Untuk Memulai Prediksi")
 if __name__=='__main__':
     run()
