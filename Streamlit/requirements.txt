@@ -1,8 +1,9 @@
 kmodes
 streamlit
-scikit-learn
+scikit-learn==1.2.2
 pandas
 numpy
-pillow
-datetime
+Pillow
 plotly
+scipy
+datetime
