@@ -6,10 +6,16 @@ import numpy as np
 import datetime as dt
 import warnings
 warnings.filterwarnings('ignore')
+from PIL import Image
+
+image_1 = Image.open('iFood_logo.png')
+image_2 = Image.open('hacktiv8.png')
+
 
 def run():
     #title
     st.title("***iFood*** Model Prediction")
+    st.image(image_1)
     
     #load classification
         # Load the trained model
@@ -48,6 +54,9 @@ def run():
     
     num_col_clust = data_clustering['num_col']
     cat_col_clust = data_clustering['cat_col']
+    
+    data_final_pred = 2
+
     
     # Create formulir
     with st.form('Form_iFood_Prediction'):
@@ -131,6 +140,8 @@ def run():
     
     st.dataframe(data_inf)
     
+    
+    
     if submitted:
         # Create new features from amount features
         data_inf["total_mnt"] = data_inf["mnt_wines"] + data_inf["mnt_fruits"] + data_inf["mnt_meat_products"] + data_inf["mnt_fish_products"] + data_inf["mnt_sweet_products"] + data_inf["mnt_gold_prods"]
@@ -191,12 +202,11 @@ def run():
         data_num_scaled = scaler.transform(data_num)
                 
         data_final = np.concatenate([data_num_scaled, data_cat_encoded], axis=1)
-                
+        
         data_final_pred = best_model.predict(data_final)
         data_final_pred
         
         # st.write('# Response: ', data_final_pred)
-    
     # Start of Clustering    
     if data_final_pred == 1 :
         st.write("This customer will buy the product from the campaign")
@@ -265,12 +275,19 @@ def run():
         # st.write('# Cluster Response: ', data_final_pred_cluster)
         
         if data_final_pred_cluster == 0:
-            st.write("Customer wont buy the products cause")
+            st.write("Customers tidak akan membeli prodak. tetapi dapat disarankan untuk: ")
+            st.write("1. Membuat bundle dan memberikan diskon pada kebutuhan pokok.")
+            st.write("Membuat campaign keluarga untuk momen-momen tertentu, menjual produk dengan porsi keluarga dengan harga terdiskon.")
         elif data_final_pred_cluster == 1:
-            st.write("Customer wont buy the products cause")
+            st.write("Customers tidak akan membeli prodak. tetapi dapat disarankan untuk: ")
+            st.write("1. Membuat loyalty program dan pemberian poin double untuk pembelian produk tertentu. Berguna untuk meratakan kategori pembelian customer.")
+            st.write("2. Membuat bundle kualitas premium dengan harga terdiskon pada momen tertentu. Berguna untuk memberikan sensasi produk premium kepada customer, sehingga dapat memancing mereka membeli produk premium di lain kesempatan.")
         elif data_final_pred_cluster == 2:
-            st.write("Customer wont buy the products cause")
+            st.write("Customers tidak akan membeli prodak. tetapi dapat disarankan untuk: ")
+            st.write("1. Memberikan layanan premium tambahan untuk customer, berguna untuk meningkatkan spending customer.")
+            st.write("2. Memberikan hadiah pada ulang tahun customer bergabung, berguna untuk memberikan memori dan mendekatkan relasi dengan customer.")
+            st.write("3. Memberikan layanan early access kepada customer untuk menikmati produk-produk limited")
+    else:
+        st.write("Tekan Tombol Prediksi Untuk Memulai Prediksi")
 if __name__=='__main__':
     run()
-    
-    

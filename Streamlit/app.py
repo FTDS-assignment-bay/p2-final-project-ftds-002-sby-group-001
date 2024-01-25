@@ -16,39 +16,39 @@ import pandas as pd
 import streamlit as st 
 
 # Import other files in the same folder
-import eda1
-import eda2
 import prediction
+import eda1
 
 # Importing image, nanti tinggal di define aja di bawah
 from PIL import Image
 
 image_1 = Image.open('iFood_logo.png')
+image_2 = Image.open('hacktiv8.png')
 
-
-page = st.sidebar.selectbox('Choose Your Page: ',
-                            ('Welcome Page','Data Analysis Exploration Page', 'Prediction Page', 'Model Analysis Page'))
+page = st.sidebar.selectbox('Pages: ',
+                            ('Welcome Page', 'Prediction Page')
+                            )
 
 if page == 'Welcome Page':
-    st.title('Welcome to xxx')
+    # Title and Logo
+    st.title('Welcome to iFood')
+    st.image(image_1,caption="iFood Logo")
+    
+    # Biodata
     st.write('')
-    st.write('Group     : FTDS 001')
-    st.write('Batch     : SBY-FTDS-002')
+    st.write('Group     : 001')
+    st.write('Members    : Fariz, Syahrul, Ronan')
     st.write('Objective :')
     st.write('')
     st.write('Please Select menu on the left bar')
-    st.image(image_1,caption="iFood Logo")
     with st.expander('Background'):
         st.caption("Di tengah pasar pengiriman makanan yang sangat kompetitif, memahami perilaku pelanggan sangat penting untuk keberhasilan kampanye pemasaran. Proyek yang kami lakukan bertujuan untuk memanfaatkan teknik-teknik data science guna mengoptimalkan strategi pemasaran sebuah perusahaan bernama iFood. Kami akan mengembangkan model klasifikasi untuk memprediksi perilaku pembelian pelanggan dalam kampanye iFood berikutnya, dan model clustering untuk mempersonalisasi pengalaman pelanggan. Dengan berfokus pada kelompok-kelompok pelanggan tertentu, iFood dapat memaksimalkan keuntungan yang dapat mereka peroleh dalam kampanye-kampanye mendatang." )
     with st.expander('Problem Statement'):
         st.caption("Apakah dengan membuat model machine learning dapat memperbaiki kualitas campaign untuk campaign selanjutnya")
     with st.expander('SPONSORED BY:'):
         st.caption("HACKTIV8")
-        st.image(image_1)
-elif page == 'Data Analysis Exploration Page':
-    eda1.run()
+        st.image(image_2)
 elif page == 'Prediction Page':
     prediction.run()
-else:
-    eda2.run()
-    
+# elif page == 'Data Analysis Exploration Page':
+#     eda1.run()

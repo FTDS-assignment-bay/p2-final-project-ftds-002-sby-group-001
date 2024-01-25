@@ -1,7 +1,8 @@
 kmodes
 streamlit
-sklearn
+scikit-learn
 pandas
 numpy
 pillow
 datetime
+plotly

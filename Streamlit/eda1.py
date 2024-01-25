@@ -15,10 +15,8 @@ def run():
     st.title("***Exploring Acceptance Rate For The Campaigns***")
     
     st.write("")
-    target = df["Response"].value_counts().reset_index()
-    persen = df["Response"].value_counts(normalize=True).reset_index()
-    target["percentage"] = persen["proportion"]
-    st.dataframe(target)
+    
+    
     
     
 if __name__=='__main__':
