@@ -1,0 +1,9 @@
+kmodes
+streamlit
+scikit-learn==1.2.2
+pandas
+numpy
+Pillow
+plotly
+scipy
+datetime
